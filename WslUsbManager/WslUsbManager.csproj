@@ -1,0 +1,43 @@
+<!--
+  WSL USB Manager
+  Copyright (c) 2026 KabukiFlux
+  Licensed under the MIT License. See LICENSE in the project root.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>WslUsbManager</RootNamespace>
+    <AssemblyName>WslUsbManager</AssemblyName>
+    <Version>1.0.0</Version>
+    <Product>WSL USB Manager</Product>
+    <Company>KabukiFlux</Company>
+    <Authors>KabukiFlux</Authors>
+    <Copyright>Copyright (c) 2026 KabukiFlux. MIT License.</Copyright>
+    <ApplicationIcon>Assets/app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <!-- Single-file, self-contained publish (dotnet publish -c Release -o ../publish) -->
+  <PropertyGroup Condition="'$(_IsPublishing)' == 'true'">
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets/app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
